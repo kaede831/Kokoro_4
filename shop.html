@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>こころとくらす|店</title>
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="icon" href="img/favicon.png">
+</head>
+<body>
+    <main class="shop">
+        <!--ホームへ-->
+            <button id="shop_back-btn">
+                <img src="img/back_ic.png" alt="おうちへ">
+            </button>
+
+        <!-- コイン -->
+            <div class="coin-box">
+                <img src="img/coin.png" alt="コイン">
+                <span id="coin">0</span>
+            </div>
+        <!-- アイテム欄 -->
+            <button id="inventory-btn">
+                <img src="img/item_ic.png" alt="アイテム">
+            </button>
+        <!-- 所持品一覧 -->
+            <div id="inventory-panel" class="inventory-panel">
+
+                <h2>アイテム一覧</h2>
+
+                <div id="inventory-list" class="item-list">
+                    <!-- JavaScriptで商品を表示 -->
+                </div>
+
+                <button id="inventory-close">
+                    とじる
+                </button>
+
+            </div>
+            <!-- アイテム消費の確認パネル -->
+            <div id="item-confirm-panel" class="item-confirm-overlay">
+                <div class="item-confirm-box">
+                    <h2>🎾 このボールを使う？</h2>
+                    <img id="confirm-item-image" src="" alt="使用するボール">
+                    <p id="confirm-item-name">ボール ver.1</p>
+                    <p class="confirm-message">
+                        このボールを1個消費して遊びます。<br>
+                        よろしいですか？
+                    </p>
+                    <div class="confirm-buttons">
+                        <button id="item-confirm-yes">使う！</button>
+                        <button id="item-confirm-no">やめる</button>
+                    </div>
+                </div>
+            </div>
+
+        <!-- 商品を見る -->
+            <button id="look">
+                <p>🛒商品を見る</p>
+            </button>
+        <!-- 商品一覧 -->
+                <div id="shop-item" class="shop-item">
+                    <h2>SHOP</h2>
+                    <div class="item-list">
+
+                        <div class="item-card">
+                            <div class="item-icon">
+                                <img src="img/ball.png" alt="ボール">
+                            </div>
+                            <h3>ボール ver.1</h3>
+                            <p class="item-price">10コイン</p>
+                            <button class="buy-btn" data-item="ball_1">購入する</button>
+                        </div>
+                        
+                        <div class="item-card">
+                            <div class="item-icon">
+                                <img src="img/ball_2.png" alt="ボール">
+                            </div>
+                            <h3>ボール ver.2</h3>
+                            <p class="item-price">30コイン</p>
+                            <button class="buy-btn" data-item="ball_2">購入する</button>
+                        </div>
+
+                        <div class="item-card">
+                            <div class="item-icon">
+                                <img src="img/ball_3.png" alt="ボール">
+                            </div>
+                            <h3>ボール ver.3</h3>
+                            <p class="item-price">30コイン</p>
+                            <button class="buy-btn" data-item="ball_3">購入する</button>
+                        </div>
+
+                        <div class="item-card">
+                            <div class="item-icon">
+                                <img src="img/ball_4.png" alt="ボール">
+                            </div>
+                            <h3>ボール ver.4</h3>
+                            <p class="item-price">30コイン</p>
+                            <button class="buy-btn" data-item="ball_4">購入する</button>
+                        </div>
+                    </div>
+                        <button id="shop-close-btn" type="button">とじる</button>
+                </div>
+
+        <!--設定-->
+        <button id="shop_setting-btn">
+            <img src="img/setting_icon.png" alt="設定">
+        </button>
+        <div id="shop_setting-panel">
+            <h2>設定</h2>
+            <p>🔊BGM</p>
+            <input type="range" id="volum" min="0" max="100" value="20">
+            <p>🎵SE</p>
+            <input type="range" id="se-volum" min="0" max="100" value="10">
+        </div>
+
+    </main>
+    <audio id="bgm" loop>
+        <source src="audio/BGM.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="se">
+        <source src="audio/btn_se.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/status.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

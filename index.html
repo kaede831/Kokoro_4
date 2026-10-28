@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>こころとくらす</title>
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="icon" href="img/favicon.png">
+    <!-- 文字 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main class="game">
+        <!--　日付　-->
+            <div class="day-box">
+                <span class="paw">🐾</span>
+                <span id="day">Day 1</span>
+            </div>
+        <!-- ステータスパネル -->
+        <section class="status-area">
+            <!-- 時間制限 -->
+             <div class="status">
+                <p>⌛制限時間</p>
+                <div id="pet-gauge">
+                    <div id="pet-gauge-fill"></div>
+                </div>
+             </div>
+        <!-- ステータス -->
+            <div class="status">
+                <p>⭐げんき</p>
+                <div class="bar">
+                    <div id="hp-bar" style="width:80%"></div>
+                </div>
+            </div>
+
+            <div class="status">
+                <p>🍚おなか</p>
+                <div class="bar">
+                    <div id="hunger-bar" style="width:50%"></div>
+                </div>
+            </div>
+
+            <div class="status">
+                <p>💭ストレス</p>
+                <div class="bar">
+                    <div id="stress-bar" style="width:20%"></div>
+                </div>
+            </div>
+
+            <div class="status">
+                <p>❤️なつき</p>
+                <div class="bar">
+                    <div id="love-bar" style="width:60%"></div>
+                </div>
+            </div>
+        </section>
+        <!-- コイン -->
+            <div class="coin-box">
+                <img src="img/coin.png" alt="コイン">
+                <span id="coin">0</span>
+            </div>
+
+        <!-- こころ -->
+        <section class="character-area">
+            <img
+                id="kokoro"
+                src="img/dog.png"
+                alt="こころ">
+        </section>
+
+        <!-- ボタン -->
+        <section class="action-area">
+            <button id="food-btn">
+                <p>🦴<br>ごはん</p>
+            </button>
+
+            <button id="pet-btn">
+                <p>🤚🏻<br>なでる</p>
+            </button>
+
+            <button id="play-btn">
+                <p>🧸<br>あそぶ</p>
+            </button>
+
+            <button id="sleep-btn">
+                <p>💤<br>ねる</p>
+            </button>
+        </section>
+        <!-- 店 -->
+         <button id="shop-btn">
+            <img src="img/shop_ic.png" alt="店">
+         </button>
+        
+        <!-- アイテム欄 -->
+            <button id="inventory-btn">
+                <img src="img/item_ic.png" alt="アイテム">
+            </button>
+        <!-- 所持品一覧 -->
+            <div id="inventory-panel" class="inventory-panel">
+                <h2>アイテム一覧</h2>
+                <div id="inventory-list" class="item-list">
+                    <!-- JavaScriptで商品を表示 -->
+                </div>
+
+                <button id="inventory-close">
+                    とじる
+                </button>
+            </div>
+            <!-- アイテム消費の確認パネル -->
+            <div id="item-confirm-panel" class="item-confirm-overlay">
+                <div class="item-confirm-box">
+                    <h2>このアイテムを使う？</h2>
+                    <img id="confirm-item-image" src="" alt="使用するアイテム">
+                    <p id="confirm-item-name">ボール ver.1</p>
+                    <p class="confirm-message">
+                        このアイテムを1個消費して遊びます。<br>
+                        よろしいですか？
+                    </p>
+                    <div class="confirm-buttons">
+                        <button id="item-confirm-yes">使う！</button>
+                        <button id="item-confirm-no">やめる</button>
+                    </div>
+                </div>
+            </div>
+
+        <!--設定-->
+        <button id="setting-btn">
+            <img src="img/setting_icon.png" alt="設定">
+        </button>
+        <div id="setting-panel">
+            <h2>設定</h2>
+            <p>🔊BGM</p>
+            <input type="range" id="volum" min="0" max="100" value="20">
+            <p>🎵SE</p>
+            <input type="range" id="se-volum" min="0" max="100" value="10">
+
+            <button id="reset-open">🗑️ データリセット</button>
+        </div>
+        <div id="reset-modal">
+    <div class="modal-box">
+            <h3>データをリセットしますか？</h3>
+            <p>Dayやステータスが初期状態に戻ります。</p>
+            <div class="modal-btn">
+                <button id="cancel-reset">
+                    キャンセル
+                </button>
+                <button id="do-reset">
+                    リセット
+                </button>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <audio id="bgm" loop>
+        <source src="audio/BGM.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="se">
+        <source src="audio/btn_se.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/status.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

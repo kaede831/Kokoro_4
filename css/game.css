@@ -1,0 +1,840 @@
+body {
+  margin: 0;
+  background: #f7f1ea;
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   全体
+========================= */
+
+.game {
+  width: 1200px;
+  height: 700px;
+  background-image: url(../img/background.jpg);
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  padding: 30px;
+  position: relative;
+}
+
+/* =========================
+   中央エリア
+========================= */
+
+.character-area {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* =========================
+   こころ
+========================= */
+
+#kokoro {
+  width: 470px;
+  user-select: none;
+  animation: float 3s ease-in-out infinite;
+  transition: 0.2s;
+}
+
+/* ふわふわ */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+/* ごはん時 */
+
+.bounce {
+
+  animation: bounce 0.3s;
+
+}
+
+@keyframes bounce {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+/* なでる */
+
+.happy{
+    transform: scale(2);
+}
+/*　〇日目　*/
+
+.day-box{
+    display:flex;
+    align-items:center;
+    background:#ffffff98;
+    padding:12px 16px;
+    border-radius:20px;
+    width:fit-content;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    margin-bottom:5px;
+    font-size:28px;
+    font-weight:600;
+    color:#6b4f3a;
+}
+
+.paw{
+    font-size:24px;
+}
+/* =========================
+   左ステータス
+========================= */
+
+.status-area {
+
+  width: 300px;
+  height: 450px;
+  background-color: #f7f1ea;
+  border-radius: 20px;
+  margin-top: 40px;
+
+}
+
+/* ステータス */
+
+.status {
+
+  margin-bottom: 25px;
+
+}
+
+/* テキスト */
+
+.status p {
+  margin-left: 4px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #6b4f3a;
+}
+
+/* 時間制限のバー */
+#pet-gauge{
+    width: 80%;
+    height: 12px;
+    background: #e7e0d8;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+#pet-gauge-fill{
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #ffb6c1,
+        #ff8fab
+    );
+    transition: width 0.2s;
+}
+
+/* バー背景 */
+
+.bar {
+  width: 90%;
+  height: 22px;
+  margin: 0 7px;
+  background: #ece5dd;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* バー共通 */
+
+#hp-bar,
+#hunger-bar,
+#stress-bar,
+#love-bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: 0.3s;
+}
+
+/* 色 */
+
+#hp-bar {
+  background: #84c96c;
+}
+
+#hunger-bar {
+  background: #ffb45e;
+}
+
+#stress-bar {
+  background: #6aa6d9;
+}
+
+#love-bar {
+  background: #ff8ca1;
+}
+
+/* =========================
+   ボタン
+========================= */
+
+.action-area {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+/* ボタン */
+
+button {
+  width: 140px;
+  height: 140px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: 0.2s;
+}
+#food-btn{
+  background-color: #fff3e6;
+}
+#pet-btn{
+  background-color: #f4b1c6;
+}
+#play-btn{
+  background-color: #c6edb9;
+}
+#sleep-btn{
+  background-color: #bbd1e6;
+}
+button p{
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 22px;
+  color: #6b4f3a;
+}
+
+/* ホバー */
+
+button:hover {
+  transform: translateY(7px);
+}
+
+/* 押した時 */
+
+button:active {
+
+  transform: scale(0.95);
+
+}
+/* ======================
+  店へ行くボタン
+====================== */
+
+#shop-btn{
+  position: absolute;
+  top: 30px;
+  right: 100px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+#shop-btn img{
+  width: 50px;
+  height: 50px;
+}
+
+/* ======================
+   設定ボタン
+====================== */
+
+#setting-btn{
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#setting-btn img{
+  width: 40px;
+  height: 40px;
+}
+#setting-panel{
+  display: none;
+  position: absolute;
+  background-color: #ece5dd;
+  border-radius: 50px;
+  width: 200px;
+  height: 400px;
+  right: 10px;
+  top: 90px;
+}
+#setting-panel h2{
+  text-align: center;
+  font-size: 25px;
+  margin: 5px;
+}
+#setting-panel p{
+  font-size: 20px;
+  margin: 3px;
+}
+#volum, #se-volum{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 160px;
+  margin-left: 20px;
+  background: #d8d3c9c5;
+  border-radius: 999px;
+}
+/* つまみ */
+#volum::-webkit-slider-thumb,
+#se-volum::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f48ca5;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+/*======================
+   コイン表示
+======================*/
+
+.coin-box{
+    position:absolute;
+    top:30px;
+    right:170px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.8);
+    padding:10px 18px;
+    border-radius:20px;
+    font-size:22px;
+    font-weight:bold;
+    color:#6b4f3a;
+}
+
+.coin-box img{
+    width:35px;
+    height:35px;
+}
+
+/* =====================
+  アイテム
+==================== */
+.item-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.item-card {
+    padding: 12px;
+    background: #ffffff;
+    border: 2px solid #f0ded3;
+    border-radius: 16px;
+}
+.item-card h3 {
+    margin: 8px 0;
+    color: #806252;
+}
+
+/* アイテムボタン */
+#inventory-btn{
+position: absolute;
+top: 100px;
+right: 10px;
+width: 60px;
+height: 60px;
+border: none;
+border-radius: 25px;
+background: rgba(255,255,255,0.8);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#inventory-btn img{
+    width: 50px;
+    height: 50px;
+}
+
+/* 所持品パネル */
+.inventory-panel {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 90%;
+    max-height: 70%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fffaf5;
+    border: 3px solid #e8c8b7;
+    border-radius: 20px;
+    z-index: 11;
+    text-align: center;
+}
+.inventory-panel h2{
+    margin-top: 0;
+    color: #8b6857;
+}
+
+/* 所持品の画像 */
+.inventory-image {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* 使用ボタン */
+.use-btn {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: #8fc6cc;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.use-btn:disabled {
+    background: #b9b9b9;
+    cursor: default;
+}
+
+/* 閉じるボタン */
+#inventory-close {
+    display: block;
+    margin: 10px auto 20px;
+    padding: 10px 18px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    background: #f3b2c1;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+/* -------------------------
+   アイテム消費の確認パネル
+------------------------- */
+
+.item-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(70, 60, 55, 0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.item-confirm-box {
+    width: 340px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    padding: 25px 20px;
+    background: #fffaf5;
+    border: 4px solid #e8c9b8;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: "Kosugi Maru", sans-serif;
+}
+
+.item-confirm-box h2 {
+    margin: 0 0 15px;
+    color: #6e5649;
+    font-size: 22px;
+}
+
+#confirm-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+#confirm-item-name {
+    margin: 8px 0;
+    color: #765b4d;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.confirm-message {
+    line-height: 1.8;
+    color: #776b63;
+    font-size: 16px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.confirm-buttons button {
+    min-width: 110px;
+    height: 70px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.confirm-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+#item-confirm-yes {
+    background: #aeead1;
+    color: #355c4b;
+}
+
+#item-confirm-no {
+    background: #eecaca;
+    color: #412e25;
+}
+
+/* ======================
+   リセットボタン
+====================== */
+
+#setting-panel hr{
+    width: 80%;
+    border: none;
+    border-top: 1px solid #d7cfc5;
+    margin: 20px auto;
+}
+
+#reset-open{
+    width: 160px;
+    height: 45px;
+    display: block;
+    margin: 20px auto;
+    border: none;
+    border-radius: 15px;
+    background: #ffd9df;
+    color: #6b4f3a;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#reset-open:hover{
+    background: #ffc5d0;
+    transform: translateY(-2px);
+}
+
+#reset-open:active{
+    transform: scale(0.95);
+}
+
+/* ======================
+   リセット確認画面
+====================== */
+
+#reset-modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box{
+    width: 320px;
+    padding: 25px;
+    background: #fff8f5;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,.2);
+}
+
+.modal-box h3{
+    margin: 0 0 10px;
+    color: #6b4f3a;
+    font-size: 22px;
+}
+
+.modal-box p{
+    color: #7c6654;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.modal-btn{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#cancel-reset,
+#do-reset{
+    width: 120px;
+    height: 45px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+#cancel-reset{
+    background: #dddddd;
+    color: #555;
+}
+
+#do-reset{
+    background: #f48ca5;
+    color: #fff;
+}
+
+#cancel-reset:hover,
+#do-reset:hover{
+    transform: translateY(-2px);
+}
+
+#cancel-reset:active,
+#do-reset:active{
+    transform: scale(.95);
+}
+/* =========================
+   背景装飾
+========================= */
+
+.game::before {
+  content: "";
+  position: absolute;
+  width: 180px; 
+  height: 180px; 
+  background: rgba(255,255,255,0.4);  
+  right: 60px;
+  top: 180px;
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+/* =========================
+   スマホレイアウト
+========================= */
+
+@media (max-width: 768px){
+
+body{
+    margin:0;
+    overflow:hidden;
+}
+
+.game{
+    width:100vw;
+    height:100vh;
+    height: 100dvh;
+    padding:15px;
+    border-radius:0;
+    background-size:cover;
+    background-position:center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: calc(15px + env(safe-area-inset-top));
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+
+/* Day */
+.day-box{
+    position:absolute;
+    top:calc(15px + env(safe-area-inset-top));
+    left:15px;
+    width:130px;
+    padding:8px 12px;
+    z-index: 10;
+    font-size:24px;
+    border-radius:18px;
+}
+
+/* 設定 */
+#setting-btn{
+    top:calc(15px + env(safe-area-inset-top));
+    right:15px;
+    width:50px;
+    height:50px;
+    z-index: 10;
+}
+
+/* コイン */
+.coin-box{
+    top:calc(15px + env(safe-area-inset-top));
+    right:70px;
+    border-radius:16px;
+    font-size:18px;
+    z-index: 10;
+}
+.coin-box img{
+  width: 25px;
+  height: 25px;
+}
+
+/* 犬 */
+.character-area{
+    position:relative;
+    top:0;
+    margin-top: 70px;
+    left:0;
+    transform:none;
+
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#kokoro{
+    width:220px;
+    max-height: 35vh;
+    object-fit: contain;
+}
+
+/* ---------- ステータス ---------- */
+.status-area{
+    position:relative;
+    top:3rem;
+    left:0;
+    transform:none;
+    width:100%;
+    height: auto;
+    margin: 15px 0;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:5px;
+    background:none;
+}
+
+/* ステータス */
+
+.status{
+    margin:0;
+    padding:8px;
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(8px);
+    border-radius:16px;
+}
+
+/* タイトル */
+.status p{
+    font-size:14px;
+    margin-top: 5px;
+    margin-bottom:5px;
+}
+
+/* バー */
+.bar{
+    width:100%;
+    height:10px;
+    margin-left: 0;
+}
+#pet-gauge{
+    width: 90%;
+    height: 10px;
+    margin-left: 5px;
+}
+/* ---------- ボタン ---------- */
+.action-area{
+    position:relative;
+    bottom:0;
+    left:0;
+    transform:none;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+/* ボタン */
+.action-area button{
+    width:100%;
+    height: 70px;
+    border-radius:22px;
+}
+.action-area button p{
+    font-size:18px;
+}
+/* ホバー */
+button:hover {
+  transform: translateY(3px);
+}
+
+/* 押した時 */
+button:active {
+  transform: scale(0.95);
+}
+
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>こころとくらす|外</title>
+    <link rel="stylesheet" href="css/play.css">
+    <link rel="icon" href="img/favicon.png">
+    <!-- 文字 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main class="play">
+        <!--　日付　-->
+            <div class="day-box">
+                <span class="paw">🐾</span>
+                <span id="day">Day 1</span>
+            </div>
+        <!--制限時間-->
+            <div class="timer-box">
+                <p>⏳ あそび時間</p>
+                <span id="time">30</span>秒
+                <div class="timer-bar">
+                    <div id="timer-fill"></div>
+                </div>
+            </div>
+        <!--ホームへ-->
+            <button id="back-btn">
+                <img src="img/back_ic.png" alt="おうちへ">
+            </button>
+        <!-- ステータス -->
+            <div class="play-status">
+
+                <div class="mini-status">
+                    <span>⭐元気</span>
+                    <div class="mini-bar">
+                        <div id="play-hp"></div>
+                    </div>
+                </div>
+
+                <div class="mini-status">
+                    <span>🍚おなか</span>
+                    <div class="mini-bar">
+                        <div id="play-hunger"></div>
+                    </div>
+                </div>
+
+                <div class="mini-status">
+                    <span>❤️なつき</span>
+                    <div class="mini-bar">
+                        <div id="play-love"></div>
+                    </div>
+                </div>
+
+                <div class="mini-status">
+                    <span>💭ストレス</span>
+                    <div class="mini-bar">
+                        <div id="play-stress"></div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- コイン -->            
+                <img id="coin-effect" src="img/coin.png" alt="コイン">
+            
+            <div class="coin-box">
+                <img src="img/coin.png" alt="コイン">
+                <span id="coin">0</span>
+            </div>
+
+
+        <!-- こころ -->
+        <section id="game-area">
+            <img
+                id="kokoro"
+                src="img/inu_run.png"
+                alt="こころ">
+
+            <img id="ball" src="img/ball.png" alt="ボール">
+        </section>
+
+        <!-- あそびの結果画面 -->
+        <div id="result-modal">
+            <div class="result-box">
+                <h2>🎉あそび終了🎉</h2>
+                <p>こころといっぱい遊んだね！</p>
+
+                <div class="result-coin">
+                    <img src="img/coin.png" alt="コイン">
+                    <span id="earned-coin">0</span>
+                    <span>コイン獲得！</span>
+                </div>
+
+                <button id="home-btn">おうちへ戻る</button>
+            </div>
+        </div>
+        <!--設定-->
+        <button id="p_setting-btn">
+            <img src="img/setting_icon.png" alt="設定">
+        </button>
+        <div id="p_setting-panel">
+            <h2>設定</h2>
+            <p>🔊BGM</p>
+            <input type="range" id="volum" min="0" max="100" value="20">
+            <p>🎵SE</p>
+            <input type="range" id="se-volum" min="0" max="100" value="10">
+        </div>
+    </main>
+
+    <audio id="bgm" loop>
+        <source src="audio/BGM_2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="se">
+        <source src="audio/btn_se.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/status.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/play.js"></script>
+</body>
+</html>

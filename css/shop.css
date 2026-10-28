@@ -1,0 +1,453 @@
+body {
+  margin: 0;
+  background: #f7f1ea;
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+/* =========================
+   全体
+========================= */
+
+.shop {
+  width: 1200px;
+  height: 700px;
+  background-image: url(../img/shop_bg.jpg);
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  padding: 30px;
+  position: relative;
+}
+/* ========================
+    ボタン
+======================== */
+/* ホバー */
+
+button:hover {
+  transform: translateY(7px);
+}
+
+/* 押した時 */
+
+button:active {
+
+  transform: scale(0.95);
+
+}
+
+/* ======================
+   設定ボタン
+====================== */
+
+#shop_setting-btn{
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#shop_setting-btn img{
+  width: 40px;
+  height: 40px;
+}
+#shop_setting-panel{
+  display: none;
+  position: absolute;
+  background-color: #ece5dd;
+  border-radius: 50px;
+  width: 200px;
+  height: 400px;
+  right: 10px;
+  top: 90px;
+}
+#shop_setting-panel h2{
+  text-align: center;
+  font-size: 25px;
+  margin: 5px;
+}
+#shop_setting-panel p{
+  font-size: 20px;
+  margin: 3px;
+}
+#volum, #se-volum{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 160px;
+  margin-left: 20px;
+  background: #d8d3c9c5;
+  border-radius: 999px;
+}
+/* つまみ */
+#volum::-webkit-slider-thumb,
+#se-volum::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f48ca5;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+/*======================
+   コイン表示
+======================*/
+
+.coin-box{
+    position:absolute;
+    top:30px;
+    right:170px;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    background:rgba(255,255,255,.8);
+    padding:10px 18px;
+    border-radius:20px;
+
+    font-size:22px;
+    font-weight:bold;
+
+    color:#6b4f3a;
+}
+
+.coin-box img{
+    width:35px;
+    height:35px;
+}
+
+/* 戻るボタン */
+#shop_back-btn{
+  position: absolute;
+  top: 30px;
+  right: 100px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+#shop_back-btn img{
+  width: 50px;
+  height: 50px;
+}
+/* 商品を見るボタン */
+#look{
+  position: absolute;
+  top: 380px;
+  left: 550px;
+  width: 150px;
+  height: 70px;
+  border: none;
+  border-radius: 15px;
+  background-color: #f69ab0;
+  cursor: pointer;
+}
+#look:hover{
+  background-color: #f48ca5;
+}
+#look p{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6b4f3a;
+}
+
+/* 商品一覧 */
+.shop-item {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 90%;
+    max-height: 70%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fffaf5;
+    border: 3px solid #e8c8b7;
+    border-radius: 20px;
+    z-index: 10;
+    text-align: center;
+}
+
+.shop-item h2 {
+    margin-top: 0;
+    color: #8b6857;
+}
+
+.item-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.item-card {
+    padding: 12px;
+    background: #ffffff;
+    border: 2px solid #f0ded3;
+    border-radius: 16px;
+}
+
+.item-icon img {
+    width: 70px;
+    height: 70px;
+}
+
+.item-card h3 {
+    margin: 8px 0;
+    color: #806252;
+}
+
+.item-card p {
+    font-size: 12px;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #bd8b43;
+}
+
+.buy-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background:  #f4aebe;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buy-btn:active {
+    transform: scale(0.96);
+}
+
+#shop-close-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 20px;
+    background: #81c9d1;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    position: static;
+    transform: none;
+    transition: opacity 0.2s;
+}
+
+#shop-close-btn:hover {
+    opacity: 0.85;
+}
+
+#shop-close-btn:active {
+    transform: scale(0.95);
+}
+
+/* アイテムボタン */
+#inventory-btn{
+position: absolute;
+top: 100px;
+right: 10px;
+width: 60px;
+height: 60px;
+border: none;
+border-radius: 25px;
+background: rgba(255,255,255,0.8);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#inventory-btn img{
+    width: 50px;
+    height: 50px;
+}
+
+/* 所持品パネル */
+.inventory-panel {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 90%;
+    max-height: 70%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fffaf5;
+    border: 3px solid #e8c8b7;
+    border-radius: 20px;
+    z-index: 11;
+    text-align: center;
+}
+.inventory-panel h2{
+    margin-top: 0;
+    color: #8b6857;
+}
+
+/* 所持品の画像 */
+.inventory-image {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* 使用ボタン */
+.use-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: #81c9d1;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.use-btn:disabled {
+    background: #b9b9b9;
+    cursor: default;
+}
+
+/* 閉じるボタン */
+#inventory-close {
+    display: block;
+    height: 70px;
+    width: 100px;
+    margin: 10px auto 20px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    background: #e7a5b4;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+#inventory-close:hover {
+opacity: 0.85;
+transform: scale(1.05);
+}
+
+#inventory-close:active {
+transform: scale(0.95);
+}
+
+/* -------------------------
+   アイテム消費の確認パネル
+------------------------- */
+
+.item-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(70, 60, 55, 0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.item-confirm-box {
+    width: 340px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    padding: 25px 20px;
+    background: #fffaf5;
+    border: 4px solid #e8c9b8;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: "Kosugi Maru", sans-serif;
+}
+
+.item-confirm-box h2 {
+    margin: 0 0 15px;
+    color: #876b5c;
+    font-size: 21px;
+}
+
+#confirm-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+#confirm-item-name {
+    margin: 8px 0;
+    color: #765b4d;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.confirm-message {
+    line-height: 1.8;
+    color: #776b63;
+    font-size: 14px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.confirm-buttons button {
+    min-width: 110px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.confirm-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+#item-confirm-yes {
+    background: #aeead1;
+    color: #355c4b;
+}
+
+#item-confirm-no {
+    background: #eecaca;
+    color: #765b4d;
+}
+
+
+@media (max-width: 400px) {
+    .shop-items {
+        padding: 12px;
+    }
+
+    .item-list {
+        gap: 8px;
+    }
+
+    .item-card {
+        padding: 8px;
+    }
+}
